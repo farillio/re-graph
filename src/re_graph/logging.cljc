@@ -22,19 +22,19 @@
 (defn info [& s]
   (let [msg (fmt s)]
     #?(:clj  (log/info msg)
-       :cljs (glog/info logger msg))))
+       :cljs (glog/info logger msg #js {}))))
 
 (defn debug [& s]
   (let [msg (fmt s)]
     #?(:clj  (log/debug msg)
-       :cljs (glog/fine logger msg))))
+       :cljs (glog/fine logger msg #js {}))))
 
 (defn warn [& s]
   (let [msg (fmt s)]
     #?(:clj (log/warn msg)
-       :cljs (glog/warning logger msg))))
+       :cljs (glog/warning logger msg #js {}))))
 
 (defn error [& s]
   (let [msg (fmt s)]
     #?(:clj (log/error msg)
-       :cljs (glog/error logger msg))))
+       :cljs (glog/error logger msg #js {}))))
